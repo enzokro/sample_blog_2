@@ -7,6 +7,27 @@
     "text": "Landing page"
   },
   {
+    "objectID": "blog/posts/2023-09-24-Second-Post/index.html",
+    "href": "blog/posts/2023-09-24-Second-Post/index.html",
+    "title": "Run a Large Language Model using the HuggingFace Transformers API.",
+    "section": "",
+    "text": "The cells below are good defaults for development.\nThe autoreload lines help load libraries on the fly, while they are changing. This works well with the editable install we created via pip install -e .\nThis means we can edit the source code directly and have the change reflected live in the notebook.\n%load_ext autoreload\n%autoreload 2\n%matplotlib inline"
+  },
+  {
+    "objectID": "blog/posts/2023-09-24-Second-Post/index.html#first-a-pipeline",
+    "href": "blog/posts/2023-09-24-Second-Post/index.html#first-a-pipeline",
+    "title": "Run a Large Language Model using the HuggingFace Transformers API.",
+    "section": "First, a Pipeline",
+    "text": "First, a Pipeline\nA HuggingFace model is based on 3 key pieces: 1. Config file.\n2. Preprocessor file.\n3. Model file.\nThe HuggingFace API gives us a way of automatically using these pieces directly: the pipeline.\nLet’s get right it and create a Sentiment Analysis pipeline.\n\n# load in the pipeline object from huggingface\nfrom transformers import pipeline\n\n# create the sentiment analysis pipeline\nclassifier = pipeline(\"sentiment-analysis\")\n\n/Users/cck/mambaforge/envs/llm_base/lib/python3.11/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html\n  from .autonotebook import tqdm as notebook_tqdm\nNo model was supplied, defaulted to distilbert-base-uncased-finetuned-sst-2-english and revision af0f99b (https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english).\nUsing a pipeline without specifying a model name and revision in production is not recommended.\nDownloading (…)lve/main/config.json: 100%|██████████| 629/629 [00:00&lt;00:00, 1.06MB/s]\nDownloading model.safetensors: 100%|██████████| 268M/268M [00:34&lt;00:00, 7.76MB/s] \nDownloading (…)okenizer_config.json: 100%|██████████| 48.0/48.0 [00:00&lt;00:00, 432kB/s]\nDownloading (…)solve/main/vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 9.00MB/s]\n\n\nWe can see in the output message above that HuggingFace automatically picked a decent, default model for us since we didn’t specify one. Specifically, it chose a distilbert model.\nWe will learn more about what exactly distilbert is and how it works later on. For now, think of it as a useful NLP genie who can tell us how it feels about a given sentence.\n\n# example from the HuggingFace tutorial\nclassifier(\"We are very happy to show you the 🤗 Transformers library.\")\n\n[{'label': 'POSITIVE', 'score': 0.9997795224189758}]\n\n\n\n# passing in several sentences at once, inside a python list\nresults = classifier([\n    \"We are very happy to show you the 🤗 Transformers library.\",\n    \"We hope you don't hate it.\",\n    \"I love Fractal! I'm so glad it's not a cult!\", \n])\n\n# print the output of each results\nfor result in results:\n    print(f\"label: {result['label']}, with score: {round(result['score'], 4)}\")\n\nlabel: POSITIVE, with score: 0.9998\nlabel: NEGATIVE, with score: 0.5309\nlabel: POSITIVE, with score: 0.999"
+  },
+  {
+    "objectID": "00_core.html",
+    "href": "00_core.html",
+    "title": "core",
+    "section": "",
+    "text": "Fill in a module description here\n\n::: {.cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nfrom nbdev.showdoc import *\n:::\n::: {.cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}\ndef foo(): pass\n\ndef my_first_function():\n    \"\"\"Simple greeter.\"\"\"\n    print(\"Hello, world!\")\n:::\n::: {.cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nimport nbdev; nbdev.nbdev_export()\n:::"
+  },
+  {
     "objectID": "blog/posts/2023-09-24-First-Post/index.html",
     "href": "blog/posts/2023-09-24-First-Post/index.html",
     "title": "Environment setups",
@@ -42,17 +63,10 @@
     "text": "Creating the environment\nAfter installing Mamba, head to the Lesson 0 here: Fractal_LLM_Course/lesson_0/envs. The README.md in that folder has the full instructions to build the mamba environment."
   },
   {
-    "objectID": "00_core.html",
-    "href": "00_core.html",
-    "title": "core",
-    "section": "",
-    "text": "Fill in a module description here\n\n::: {.cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nfrom nbdev.showdoc import *\n:::\n::: {.cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}\ndef foo(): pass\n\ndef my_first_function():\n    \"\"\"Simple greeter.\"\"\"\n    print(\"Hello, world!\")\n:::\n::: {.cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nimport nbdev; nbdev.nbdev_export()\n:::"
-  },
-  {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
     "title": "Example Fractal-U Blog",
     "section": "",
-    "text": "Environment setups\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "Environment setups\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nRun a Large Language Model using the HuggingFace Transformers API.\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   }
 ]

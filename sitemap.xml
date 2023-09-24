@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://enzokro.github.io/sample_blog_2/index.html</loc>
-    <lastmod>2023-09-24T16:29:30.553Z</lastmod>
+    <lastmod>2023-09-24T16:36:59.695Z</lastmod>
   </url>
   <url>
-    <loc>https://enzokro.github.io/sample_blog_2/blog/posts/2023-09-24-First-Post/index.html</loc>
-    <lastmod>2023-09-24T16:29:30.101Z</lastmod>
-  </url>
-  <url>
-    <loc>https://enzokro.github.io/sample_blog_2/00_core.html</loc>
-    <lastmod>2023-09-24T16:29:29.542Z</lastmod>
+    <loc>https://enzokro.github.io/sample_blog_2/blog/posts/2023-09-24-Second-Post/index.html</loc>
+    <lastmod>2023-09-24T16:36:59.228Z</lastmod>
   </url>
   <url>
     <loc>https://enzokro.github.io/sample_blog_2/Untitled.html</loc>
-    <lastmod>2023-09-24T16:29:29.745Z</lastmod>
+    <lastmod>2023-09-24T16:36:58.517Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enzokro.github.io/sample_blog_2/00_core.html</loc>
+    <lastmod>2023-09-24T16:36:58.313Z</lastmod>
+  </url>
+  <url>
+    <loc>https://enzokro.github.io/sample_blog_2/blog/posts/2023-09-24-First-Post/index.html</loc>
+    <lastmod>2023-09-24T16:36:58.884Z</lastmod>
   </url>
   <url>
     <loc>https://enzokro.github.io/sample_blog_2/blog/index.html</loc>
-    <lastmod>2023-09-24T16:29:30.354Z</lastmod>
+    <lastmod>2023-09-24T16:36:59.496Z</lastmod>
   </url>
 </urlset>
