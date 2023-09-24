@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "source\n\nmy_first_function\n\n my_first_function ()\n\nSimple greeter.\n\nsource\n\n\nfoo\n\n foo ()"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Example Fractal-U Blog",
+    "section": "",
+    "text": "Our first blog post.\n\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2023\n\n\nChris + Crew\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/posts/2023-09-24-First-Post/index.html",
+    "href": "blog/posts/2023-09-24-First-Post/index.html",
+    "title": "Our first blog post.",
+    "section": "",
+    "text": "Hello! This is my first post.\nHere I will write many cool and fun things about LLMs.\n\nprint(\"Hello, LLMs!\")"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "sample_blog_2",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation."
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "sample_blog_2",
+    "section": "Install",
+    "text": "Install\npip install sample_blog_2"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "sample_blog_2",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2"
+  }
+]
