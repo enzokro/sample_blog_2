@@ -2,23 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "sample_blog_2",
+    "title": "LLM Class Blog",
     "section": "",
-    "text": "::: {.cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\n:::\nThis file will become your README and also the index of your documentation."
-  },
-  {
-    "objectID": "index.html#install",
-    "href": "index.html#install",
-    "title": "sample_blog_2",
-    "section": "Install",
-    "text": "Install\npip install sample_blog_2"
-  },
-  {
-    "objectID": "index.html#how-to-use",
-    "href": "index.html#how-to-use",
-    "title": "sample_blog_2",
-    "section": "How to use",
-    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2"
+    "text": "Landing page"
   },
   {
     "objectID": "blog/posts/2023-09-24-First-Post/index.html",
