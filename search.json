@@ -1,31 +1,10 @@
 [
   {
-    "objectID": "core.html",
-    "href": "core.html",
-    "title": "core",
-    "section": "",
-    "text": "source\n\nmy_first_function\n\n my_first_function ()\n\nSimple greeter.\n\nsource\n\n\nfoo\n\n foo ()"
-  },
-  {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Example Fractal-U Blog",
-    "section": "",
-    "text": "Our first blog post.\n\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2023\n\n\nChris + Crew\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "blog/posts/2023-09-24-First-Post/index.html",
-    "href": "blog/posts/2023-09-24-First-Post/index.html",
-    "title": "Our first blog post.",
-    "section": "",
-    "text": "Hello! This is my first post.\nHere I will write many cool and fun things about LLMs.\n\nprint(\"Hello, LLMs!\")"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "sample_blog_2",
     "section": "",
-    "text": "This file will become your README and also the index of your documentation."
+    "text": "::: {.cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\n:::\nThis file will become your README and also the index of your documentation."
   },
   {
     "objectID": "index.html#install",
@@ -40,5 +19,26 @@
     "title": "sample_blog_2",
     "section": "How to use",
     "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2"
+  },
+  {
+    "objectID": "blog/posts/2023-09-24-First-Post/index.html",
+    "href": "blog/posts/2023-09-24-First-Post/index.html",
+    "title": "Our first blog post.",
+    "section": "",
+    "text": "Hello! This is my first post.\nHere I will write many cool and fun things about LLMs.\n\nprint(\"Hello, LLMs!\")"
+  },
+  {
+    "objectID": "00_core.html",
+    "href": "00_core.html",
+    "title": "core",
+    "section": "",
+    "text": "Fill in a module description here\n\n::: {.cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nfrom nbdev.showdoc import *\n:::\n::: {.cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}\ndef foo(): pass\n\ndef my_first_function():\n    \"\"\"Simple greeter.\"\"\"\n    print(\"Hello, world!\")\n:::\n::: {.cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nimport nbdev; nbdev.nbdev_export()\n:::"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Example Fractal-U Blog",
+    "section": "",
+    "text": "Our first blog post.\n\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2023\n\n\nChris + Crew\n\n\n\n\n\n\nNo matching items"
   }
 ]
