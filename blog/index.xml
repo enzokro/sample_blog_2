@@ -10,32 +10,153 @@
 <atom:link href="https://enzokro.github.io/sample_blog_2/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Creating a sample blog with nbdev</description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Sun, 24 Sep 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 24 Sep 2023 16:29:30 GMT</lastBuildDate>
 <item>
-  <title>Our first blog post.</title>
-  <dc:creator>Chris + Crew</dc:creator>
+  <title>Environment setups</title>
   <link>https://enzokro.github.io/sample_blog_2/blog/posts/2023-09-24-First-Post/index.html</link>
   <description><![CDATA[ 
 
 
 
-<section id="hello-this-is-my-first-post." class="level1">
-<h1>Hello! This is my first post.</h1>
-<p>Here I will write many cool and fun things about LLMs.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="bu" style="color: null;
+<blockquote class="blockquote">
+<p>Running a Large Language Model using the HuggingFace <code>Transformers</code> API.</p>
+</blockquote>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>The goal of this course is to build an AI Agent by fine-tuning a Large Language Model (LLM) on documents chosen by each student. What exactly do we mean by Agent, and why would we focus on a simple one?</p>
+<p>To give some context, there is a lot of talk and hype around Agents at the moment. Folks are looking towards a future where we all have personalized AI assistants, aka Agents, at our fingertips. These Agents will make our lives better both in the day to day and in the long term. They are the AI assistants of Science Fiction made material. Agents like TARS from Interstellar, Jarvis from Iron Man, HAL 9000 from Space Odyssey, Samantha from Her, etc.</p>
+<p>For as fast as the progress in AI and LLMs has been, Agents as powerful as those are still a ways off. It’s hard if not impossible to predict the exact timelines. Suffice it to say that these Agents won’t be here anytime “soon”. But, barring some force majeure, they <em>will</em> exist at some point.</p>
+<p>The gap, then, is that folks are talking about (and promising) these advanced Agent capabilities, while on the ground we are still dealing with LLM hallucinations and prohibitive compute requirements.</p>
+<p>Where does that leave us? Well, as <a href="https://twitter.com/gdb/status/1694107518488981868">a recent announcement from OpenAI</a> shows, fine-tuning GPT-3.5 on small, clean datasets can even surpass GPT-4 on certain tasks. <em>That’s</em> what we are aiming for. In other words, we already have the ability to develop outrageously powerful tools by fine-tuning LLMs on small, clean datasets.</p>
+<p>So we won’t build a simple chatbot, nor will we be build Iron Man’s Jarvis. We will land somewhere in the middle. If it helps, try thinking about this simple Agent as an Intelligent Rubber Duck. In case you’re not familiar with the concept: a Rubber Duck is anything (actual yellow rubber duckie optional) that you keep around your desk and talk to about your work. It is a physical tool for thought, since it’s so often helpful to say out loud the swarm of thoughts in our head.</p>
+<p>Our simple Agent will be a Rubber Duck that speaks back at you. When you ask it a question about your work, it will respond given what it knows about the project as a whole. Or, if you are simply verbalizing a thought to untangle it, the Agent will give you some feedback or suggest other approaches. If we can be so bold: our Agent will be a Jarvis-lite, laser-focused on a narrow scope. Then, as both the tools and tech progresses, we’ll have everything needed to unlock even more capabilities from our Intelligent Rubber Duck.</p>
+<blockquote class="blockquote">
+<p>Summary: In this course we will fine-tune an LLM on a small, clean dataset of our choosing to build an Intelligent Rubber Duck that can help us work or create better.</p>
+</blockquote>
+<section id="things-we-need-for-the-class" class="level2">
+<h2 class="anchored" data-anchor-id="things-we-need-for-the-class">Things we need for the class</h2>
+<p>In order to fully use a current, open source LLM, the first thing we need to do is set up a proper <code>programming environment</code>. The environment is a computing ecosystem with all the software libraries and packages needed to run an LLM.</p>
+<p>Note that setting up this environment is often one of the most time-consuming and challenging tasks when it comes to Machine Learning. There is no silver bullet or universal solution, as you will see by the dozens of tools that folks have come up with to tackle this problem (insert xkcd comic about competing standards).</p>
+<p>The main point here is that setting up the environment is often annoying. It can even be straight up painful. It’s ok to feel lost or struggle with it. Please take some comfort in the fact that once we have the environment, many of the downstream tasks will feel easy by comparison!</p>
+<p>So what makes building this environment so challenging? And why do we need it in the first place?</p>
+<section id="silent-failures-in-ai-models" class="level4">
+<h4 class="anchored" data-anchor-id="silent-failures-in-ai-models">Silent Failures in AI Models</h4>
+<p>LLMs, and Machine Learning models more generally, often fail in different ways than other, standard software fails. For instance, classic bugs in regular software include: type mismatches, syntax errors, compilation errors, etc. In other words failures that clearly stem from a <em>wrong</em> operation (aka a bug) that snuck into the code. We wanted the computer to do <code>X</code>, but we told it by accident to do <code>Y</code> instead.</p>
+<p>In contrast, ML models often have “silent” failures. There is no syntax or compilation error - the program still runs and completes fine. But, there is <em>something</em> wrong in the code: adding where we should have subtracted, grabbing the wrong element from a list, or using the wrong mathematical function. There is no type checker or compiler that would (or even could, for now) catch these errors.</p>
+<p>The fix for the silent failures above is clear:<br>
+- Carefully inspecting the code.<br>
+- Monitoring and validating its outputs.<br>
+- Clarity in both the algorithms and models we are using.</p>
+<p>There is another, unfortunate kind of silent failure: <code>version</code> mismatches. Version failures happen when we use a different version of a programming library than the version originally used by the model. As the software libraries we rely on are frequently updated, both subtle and major changes in their internals can affect the output of a model. These failures are unfortunately immune to our careful logical checks.</p>
+<p>Avoiding these silent failures is the main reason for being consistent and disciplined with our model’s programming environment. A good environment setup keeps us focused on the important, conceptual part of our model instead of getting bogged down in managing software versions.</p>
+</section>
+<section id="looking-forward-with-our-environment" class="level4">
+<h4 class="anchored" data-anchor-id="looking-forward-with-our-environment">Looking forward with our environment</h4>
+<p>There is a nice benefit to spending this much time and effort up front on our environment.</p>
+<p>We will not only have a specialized environment to run and fine-tune a single LLM. We’ll have a springboard and setup to keep up with the state of the art in the field. A setup to bring in groundbreaking improvements as they are released. And to weave in the latest and greatest models. The LLM world is our oyster, and the base environment the grain of sand soon-to-be pearls.</p>
+</section>
+</section>
+<section id="organizing-what-we-need" class="level2">
+<h2 class="anchored" data-anchor-id="organizing-what-we-need">Organizing what we need</h2>
+<p>The <code>mamba</code> package manager will handle the python version. Why Mamba? To start it is way fast and better than Anaconda, and it makes it easier to install OS and system-level packages we need outside of python.</p>
+<p>We will use <code>pip</code> to install the actual python packages. Note that we could use mamba for this as well, but a few of the libraries need custom pip options to install.</p>
+<blockquote class="blockquote">
+<p>Note: Run <code>pip install -e .</code> to install a dynamic version of this package that tracks live code changes.</p>
+</blockquote>
+</section>
+</section>
+<section id="installing-mamba-on-our-computers" class="level1">
+<h1>Installing <code>mamba</code> on our computers</h1>
+<p>Follow the steps in the <a href="https://github.com/conda-forge/miniforge#install">official install instructions</a>.</p>
+<section id="mac-installation" class="level2">
+<h2 class="anchored" data-anchor-id="mac-installation">Mac Installation</h2>
+<p>First find the name of your architecture. We then use it to pick the right install script for each Mac.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"></span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+font-style: inherit;"># check your mac's architecture</span></span>
+<span id="cb1-3"><span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">"Hello, LLMs!"</span>)</span></code></pre></div>
-</div>
+font-style: inherit;">arch</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uname</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span> </span>
+<span id="cb1-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$arch</span></span>
+<span id="cb1-5"></span>
+<span id="cb1-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># download the appropriate installation script</span></span>
+<span id="cb1-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">curl</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-L</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-O</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uname</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">-</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uname</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-m</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.sh"</span></span>
+<span id="cb1-8"></span>
+<span id="cb1-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># run the Mambaforge installer</span></span>
+<span id="cb1-10"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bash</span> Mambaforge-<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uname</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span>-<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uname</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-m</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span>.sh</span></code></pre></div>
+<p>If you prefer to download the file directly, grab it from here:</p>
+<p>https://github.com/conda-forge/miniforge/releases/</p>
+</section>
+<section id="creating-the-environment" class="level2">
+<h2 class="anchored" data-anchor-id="creating-the-environment">Creating the environment</h2>
+<p>After installing Mamba, head to the Lesson 0 here: <code>Fractal_LLM_Course/lesson_0/envs</code>. The <code>README.md</code> in that folder has the full instructions to build the mamba environment.</p>
 
 
+</section>
 </section>
 
  ]]></description>
   <guid>https://enzokro.github.io/sample_blog_2/blog/posts/2023-09-24-First-Post/index.html</guid>
-  <pubDate>Sun, 24 Sep 2023 04:00:00 GMT</pubDate>
+  <pubDate>Sun, 24 Sep 2023 16:29:30 GMT</pubDate>
 </item>
 </channel>
 </rss>
