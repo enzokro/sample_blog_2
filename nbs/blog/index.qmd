@@ -1,0 +1,12 @@
+---
+title: Example Fractal-U Blog
+subtitle: Sample posts
+listing:
+  sort: "date desc"
+  contents: "posts"
+  sort-ui: false
+  filter-ui: false
+  categories: true
+  feed: true
+page-layout: full
+---

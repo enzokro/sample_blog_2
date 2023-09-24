@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "sample_blog_2"
+  site-url: "https://enzokro.github.io/sample_blog_2"
+  description: "Creating a sample blog with nbdev"
+  repo-branch: main
+  repo-url: "https://github.com/enzokro/sample_blog_2"
