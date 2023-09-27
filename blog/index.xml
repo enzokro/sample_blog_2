@@ -29,13 +29,13 @@
 </section>
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro:</h2>
-<p>This Notebook takes a closer look at the <code>nbdev</code> library. <code>nbdev</code> is a powerful tool built around two key ideas:<br>
+<p>This Notebook takes a closer look at the <code>nbdev</code> library. <code>nbdev</code> is a powerful tool built around two main ideas:<br>
 - <a href="https://en.wikipedia.org/wiki/Literate_programming">Literate Programming</a>.<br>
 - <a href="https://en.wikipedia.org/wiki/Exploratory_programming">Exploratory Programming</a>.</p>
-<p>The next section gives an overview of these two ideas, and how their combination is powerful.</p>
+<p>The next section gives an overview of these ideas and what makes their combination so powerful.</p>
 <section id="literate-programming" class="level3">
 <h3 class="anchored" data-anchor-id="literate-programming">Literate Programming</h3>
-<p>In Literate Programming, descriptions (documentation) are woven directly into a project’s source code. This is opposite from most codebases where documentation lives as a separate set of files. It also goes beyond tools like <a href="https://www.sphinx-doc.org/en/master/">sphinx</a> that instead parse comments and docstrings into documentation.</p>
+<p>In Literate Programming, descriptions (aka documentation) are woven directly into a project’s source code. This is opposite from most codebases where documentation lives as a separate set of files. It also goes beyond tools like <a href="https://www.sphinx-doc.org/en/master/">sphinx</a> that instead parse comments and docstrings into documentation.</p>
 <p>Code, tests, and documentation are all first-class citizens in Literate Programming. In <code>nbdev</code> a Notebook is the single, unified source for all three of these things. Instead of having to independently manage code, docs, and tests, everything happens in the Notebook. If the Notebook runs then you know your code will run. The tight integration between what you’re doing (code), describing what you’re doing (documentation), and making sure it’s correct (tests) is a great approach for both research and thinking in general.</p>
 </section>
 <section id="exploratory-programming" class="level3">
