@@ -584,7 +584,7 @@ font-style: inherit;">'POSITIVE'</span></span></code></pre></div>
 </blockquote>
 <p>The following set of commands will:<br>
 - Export the Notebooks into a library.<br>
-- Install the library as an editable install.<br>
+- Install an editable version of the library.<br>
 - Import the newly installed library in a python shell.</p>
 <p>Make sure to run them from the top-level directory of the repo.</p>
 <div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><span class="co" style="color: #5E5E5E;
