@@ -2,9 +2,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
-      "/blog/posts/2023-09-24-First-Post/index.html",
-      "/blog/posts/2023-09-24-Second-Post/index.html",
-      "/blog/posts/2023-09-27-Third-Post/index.html"
+      "/blog/posts/2023-09-27-Blog-Intro/index.html"
     ]
   }
 ]
