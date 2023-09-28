@@ -28,6 +28,10 @@
   margin-top: 0;
 }
 
+body.special ul > li:first-child > ul > li {
+  list-style-type: square;
+}
+
 div.description {
   padding-left: 2px;
   padding-top: 5px;
