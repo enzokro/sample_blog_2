@@ -249,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="combining-literate-and-exploratory-programming" class="level3">
 <h3 class="anchored" data-anchor-id="combining-literate-and-exploratory-programming">Combining Literate and Exploratory Programming</h3>
 <p><code>nbdev</code>’s main workflow combines these two ideas. It’s a great approach for trying things out, figuring out what they do, and how they work. We can poke around and explore codebases in a much more interactive way than usual. Iterations are fast and cheap so it’s easy to follow any hit of curiosity. And if anything breaks, we can always restart the Notebook and try again.</p>
-<p>These ideas can be mix and matched as on the fly. For example at the start of a project, while figuring out the problem space, we might lean Exploratory. Then, as the idea matures, we pivot more Literate to refine and crystallize our approach.</p>
+<p>These ideas can be mix and matched on the fly. For example at the start of a project, while figuring out the problem space, we might lean Exploratory. Then, as the idea matures, we pivot more Literate to refine and crystallize our approach.</p>
 <p>Now for the first goal: creating and publishing a blog post.</p>
 </section>
 </section>
@@ -263,9 +263,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li>Set it up to be a publishable blog.<br>
 </li>
-<li>Build and published the blog to Github pages.</li>
+<li>Build and publish the blog to Github pages.</li>
 </ol>
-<p><code>nbdev</code> leverages a tool called <a href="https://quarto.org/">Quarto</a> for blogging. Quarto is a publishing framework tailored for scientific and technical articles and posts. In a way it’s a blogging platform for Literate Programming, where a series of code commands tells a story and takes the reader on a journey.</p>
+<p><code>nbdev</code> leverages a tool called <a href="https://quarto.org/">Quarto</a> for blogging. Quarto is a publishing framework tailored for scientific and technical articles and posts. In a way it’s a blogging platform for Literate Programming, where a series of code commands tells a story that takes its reader on a journey.</p>
 <p><img src="quarto.png" class="img-fluid"></p>
 </section>
 <section id="creating-a-new-nbdev-project" class="level3">
@@ -275,38 +275,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Note: We need a completely empty repo. Don’t include a <code>.gitignore</code> or <code>README.md</code>.</p>
 </blockquote>
 <p>In this example the empty repo is called <code>sample_blog</code>, but feel free to call it anything you’d like. We’re not tied to this name either. We can always create new repos with different, better names.</p>
-<p>Now clone the empty new repo to your computer. Make sure to change the github link below so it points to your repo instead.</p>
+<p>Clone the empty new repo to your computer. Make sure to change the github link below so it points to your repo instead.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clone the repo to your computer</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/enzokro/sample_blog.git <span class="co"># &lt;-- ! link with your repo here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now we can go into this repo and let <code>nbdev</code> work its initialization magic. Run the <code>nbdev_new</code> command to get started. It will prompt you for some general info like a short description about the project.</p>
+<p>Now we can go into this repo and let <code>nbdev</code> work its initialization magic. Run the <code>nbdev_new</code> command to start. It will prompt you for some general info like a short description about the project.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># move into the new repo and initialize the nbdev project</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> sample_blog/</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">nbdev_new</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>All of the options and configs for the project are in the <code>settings.ini</code> file. <code>nbdev</code> looks in this file when it needs information about the project.</p>
+<p>All of the options and configs for the project are in the <code>settings.ini</code> file. <code>nbdev</code> looks in this file when it needs any information for its commands.</p>
 <p>After <code>nbdev_new</code> finishes, you will have a brand new <code>nbdev</code> project!</p>
 <p>Run a <code>git status</code> command to see everything that was added. Then we commit and push these changes to Github.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add, commit, and push the files created by nbdev</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span><span class="st">'Initial nbdev project creation'</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>As we mentioned earlier, <code>nbdev</code> leverages Quarto for publishing Notebooks. Let’s take a look at how create this project into a proper Quarto blog.</p>
+<p>As we mentioned earlier, <code>nbdev</code> leverages Quarto for publishing Notebooks. Let’s take a look at how to turn this project into a proper Quarto blog.</p>
 </section>
 <section id="adding-quarto-to-the-mix" class="level3">
 <h3 class="anchored" data-anchor-id="adding-quarto-to-the-mix">Adding Quarto to the Mix</h3>
 <p>Start by activating the virtual environment:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># activate the environment</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> activate llm_base</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Then install Quarto via <code>nbdev</code> by running the <code>nbdev_install_quarto</code> command. Note the command will ask for admin privileges.</p>
+<p>Install Quarto via <code>nbdev</code> by running the <code>nbdev_install_quarto</code> command. Note that the command will ask for admin privileges.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install quarto</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">nbdev_install_quarto</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You may need to refresh the terminal session before it can find the <code>quarto</code> commands. To be safe, open up a new terminal and re-activate the environment. Now the command below will check if Quarto was installed successfully.</p>
+<p>You may need to refresh the terminal before it can find the <code>quarto</code> commands. To be safe, open up a new terminal and re-activate the environment. Now the command below will check if Quarto was installed right.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># shows us where quarto was installed</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> quarto </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="turning-an-nbdev-project-into-a-quarto-blog" class="level4">
 <h4 class="anchored" data-anchor-id="turning-an-nbdev-project-into-a-quarto-blog">Turning an <code>nbdev</code> project into a Quarto blog</h4>
-<p>In a typical <code>nbdev</code> project the Notebooks all live inside of the <code>nbs/</code> folder. There are the Notebooks that eventually become a project’s documentation, tests, and source code.</p>
+<p>In a typical <code>nbdev</code> project the Notebooks all live inside of the <code>nbs/</code> folder. These are the Notebooks that eventually become a project’s documentation, tests, and source code.</p>
 <p>For Quarto to instead publish Notebooks as blog posts, we need to add a few files and folders to the <code>nbs/</code> folder.</p>
-<p>Here is what the blog-ready <code>nbs/</code> folder should look like to start.</p>
+<p>Here is how a <code>nbs/</code> folder primed for its first blog post will look:</p>
 <p><strong>Initial Structure for Quarto Blog</strong>:</p>
 <pre><code>sample_blog
 └───nbs/
@@ -330,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">feed</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">page-layout</span><span class="kw">:</span><span class="at"> full</span></span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Each post gets its own folder with an <code>index.ipynb</code> Notebook inside that has the actual post’s content. We can also add photos, videos, and any other media that enhances the post inside of the folder.</p>
+<p>Each post gets its own folder so we can stay better organized. Inside each folder is an <code>index.ipynb</code> Notebook with the post’s actual content. We can also add photos, videos, and any other media that enhances the post to the folder.</p>
 <p>In this case, we are going a bit meta and using this Notebook itself as <code>index.ipynb</code> in the folder called <code>2023-09-27-Blog-Intro/</code>.</p>
 <p>In other words this Notebook will also be our first blog post.</p>
 </section>
@@ -447,17 +447,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> classifier(<span class="st">"We are very happy to show you the 🤗 Transformers library."</span>)<span class="op">;</span> results</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> results[<span class="st">'label'</span>] <span class="op">==</span> <span class="st">'POSITIVE'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code>nbdev</code> runs this notebook when it compiles the library, and if the tests fail then the build fails. So you can think of the code cell above as a unit test for the <code>SentimentAnalysis</code> pipeline. Writing tests like this alongside the source code is a great, built-in way of making sure that the library always works as intended.</p>
+<p><code>nbdev</code> runs this notebook when it compiles the library, and if the tests fail then the build fails. So you can think of the code cell above as a unit test for the <code>SentimentAnalysis</code> pipeline. Writing tests like this alongside the source code is a great, built-in way of making sure that the library is always working.</p>
 <section id="exporting-the-library" class="level3">
 <h3 class="anchored" data-anchor-id="exporting-the-library">Exporting the library</h3>
-<p>We can now export the library using the <code>nbdev_export</code> command. This command creates a file inside of the top-level library folder <code>Fractal_LLM_Course/</code>. Per the <code>default_exp</code> directive, the file is called <code>lesson_2/simple_pipeline.py</code>.</p>
+<p>We can now export the Notebooks using the <code>nbdev_export</code> command. This command will create a file inside the top-level library folder <code>Fractal_LLM_Course/</code>. Per the <code>default_exp</code> directive, the file is nested in a folder, and its full path is <code>lesson_2/simple_pipeline.py</code>.</p>
 <p>Make sure to run the following code from the top-level of the repo.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># export Notebooks into python files</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">nbdev_export</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We can now install this library using <code>pip</code>, just as we would any other python package.</p>
+<p>This library can now be installed with <code>pip</code>, just like with any other python library.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install the library as an editable install</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> . </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Below is an example of loading this library and using the <code>SentimentPipeline</code> class.</p>
+<p>Below is an example of using the <code>SentimentPipeline</code> class in this library, after installation.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the newly installed library </span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Fractal_LLM_Course.lesson_2.simple_pipeline <span class="im">import</span> SentimentPipeline</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -472,7 +472,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This Notebook covered two key features of <code>nbdev</code>:<br>
 - Creating a blog.<br>
 - Building python libraries.</p>
-<p>We showed how the mixture of Literate and Exploratory Programming is a powerful approach for both research and thinking in general. And <code>nbdev</code> helps us quickly try out new ideas and easily share them with others.</p>
+<p>We also showed how the mixture of Literate and Exploratory Programming is a powerful approach for both research and thinking in general. And we showed how <code>nbdev</code> helps us quickly try out new ideas and easily share them with others.</p>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <ul>
